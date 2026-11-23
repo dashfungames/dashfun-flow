@@ -1,0 +1,23 @@
+[package]
+name = "zyra-bridge"
+version = "0.1.0"
+edition = "2021"
+description = "zyra bridge"
+license = "MIT"
+publish = false
+
+[lib]
+name = "zyra_bridge"
+crate-type = ["cdylib", "lib"]
+
+[features]
+default = []
+no-entrypoint = []
+
+[dependencies]
+solana-program = "=1.18.26"
+
+[profile.release]
+overflow-checks = true
+lto = "fat"
+codegen-units = 1
